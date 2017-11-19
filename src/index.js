@@ -1,8 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import './index.css';
-import App from './App';
+import PokemonList from './components/pokemon-list'
+import store from './store'
+import {Provider} from 'react-redux'
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(
+  <Provider store={store}>
+    <PokemonList/>
+  </Provider>, document.getElementById('root'));
 registerServiceWorker();
