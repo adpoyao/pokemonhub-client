@@ -37,7 +37,8 @@ export const addPokeDataError = () => ({
 export const FETCH_POKEDATA = 'FETCH_POKEDATA'
 export const fetchPokeData = () => dispatch => {
   dispatch(fetchPokeDataRequest());
-  return fetch(`${API_BASE_URL}/pokemon`)
+  // return fetch(`${API_BASE_URL}/pokemon`)
+  return fetch(`https://pokehub.herokuapp.com/api/pokemon`)
     .then(res => {
       if (!res.ok) {
         Promise.reject(res.statusText);
@@ -54,7 +55,8 @@ export const fetchPokeData = () => dispatch => {
 export const ADD_POKEDATA = 'ADD_POKEDATA'
 export const addPokeData = (pokeData) => dispatch => {
   dispatch(addPokeDataRequest(pokeData));
-  return fetch(`${API_BASE_URL}/pokemon`, {
+  // return fetch(`${API_BASE_URL}/pokemon`, {
+  return fetch('https://pokehub.herokuapp.com/api/pokemon', {
 			method: 'POST', 
 			headers: {'Content-Type': 'application/json', 'Accept': 'application/json' },
 			body: JSON.stringify(pokeData)
